@@ -1,5 +1,6 @@
 # Design oligoes
 We designed programs to generate oligoes with different TF motifs and remove oligoes with unintended motifs.
+The oligo design program is made by [Chao Yan].
 
 ## input files
 ### Background sequence
@@ -15,7 +16,6 @@ PWMs are saved in folder "[Formatted_PWM](https://github.com/HengyeChen/oligo_de
 PWM score cutoff information is saved in "[recommended_cutoff.xlsx](https://github.com/HengyeChen/oligo_design/blob/main/recommended_cutoff.xlsx)".
 
 ## Oligo design
-The oligo design program is made by Chao Yan.
 Add your folder to the MATLAB path
 Run the command below to open OligoDesign3. 
 > OligoDesign3;
