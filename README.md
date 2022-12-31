@@ -1,6 +1,6 @@
 # Design oligoes
 We designed programs to generate oligoes with different TF motifs and remove oligoes with unintended motifs.
-The oligo design program is made by [Chao Yan].
+The oligo design program is made by "[Chao Yan]".
 
 ## input files
 ### Background sequence
