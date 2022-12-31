@@ -15,8 +15,9 @@ PWMs are saved in folder "[Formatted_PWM](https://github.com/HengyeChen/oligo_de
 PWM score cutoff information is saved in "[recommended_cutoff.xlsx](https://github.com/HengyeChen/oligo_design/blob/main/recommended_cutoff.xlsx)".
 
 ## Oligo design
+The oligo design program is made by Chao Yan.
 Add your folder to the MATLAB path
-Run the command below to open OligoDesign3
+Run the command below to open OligoDesign3. 
 > OligoDesign3;
 
 Choose input files and select output folder in the program. You can change the motif number and position in the text box on the program panel.
