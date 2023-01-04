@@ -1,5 +1,5 @@
-# Design oligoes
-We designed programs to generate oligoes with different TF motifs and remove oligoes with unintended motifs.
+# Design oligos
+We designed programs to generate oligos with different TF motifs and remove oligos with unintended motifs.
 The oligo design program is made by Chao Yan.
 
 ## input files
@@ -24,25 +24,25 @@ Choose input files and select output folder in the program. You can change the m
 This program replace the endogenous sequence in the background sequence with target TF motifs.
 
 ## Check motifs in oligo sequences
-Run the command below to check motifs in oligoes and remove oligoes with unintended motifs.
+Run the command below to check motifs in oligos and remove oligos with unintended motifs.
 > cd Yourfolder;%open the directory containing the sample files\
-> oligo_file = 'oligoes\oligo_example.txt';\
+> oligo_file = 'oligos\oligo_example.txt';\
 > bkg_file = 'design_info\bkg sequence (HO nuc-4).txt';\
 > PWM_folder = 'Formatted_PWM';\
 > cutoffFile = 'recommended_cutoff.xlsx';\
-> result_file = 'oligoes\oligo_motif_scan.mat';\
-> output_seqs = 'oligoes\oligo_filtered.txt';\
+> result_file = 'oligos\oligo_motif_scan.mat';\
+> output_seqs = 'oligos\oligo_filtered.txt';\
 > [all_mat,final_seq] = BindingsitecheckHC_v2(oligo_file,bkg_file,PWM_folder,cutoffFile,result_file,output_seqs);
 
-BindingsitecheckHC_v2.m scan each oligo and uses PWMs and cutoff file to determine the existence of each TF motif. Oligoes with unintended motifs will be removed.
+BindingsitecheckHC_v2.m scan each oligo and uses PWMs and cutoff file to determine the existence of each TF motif. oligos with unintended motifs will be removed.
 
 ## Examples of output files
-### Oligoes and filtered Oligoes
-Oligo sequences are saved in txt files "[oligo_example.txt](https://github.com/HengyeChen/oligo_design/blob/main/oligoes/oligo_example.txt)" and "[oligo_filtered.txt](https://github.com/HengyeChen/oligo_design/blob/main/oligoes/oligo_filtered.txt)"
+### oligos and filtered oligos
+Oligo sequences are saved in txt files "[oligo_example.txt](https://github.com/HengyeChen/oligo_design/blob/main/oligos/oligo_example.txt)" and "[oligo_filtered.txt](https://github.com/HengyeChen/oligo_design/blob/main/oligos/oligo_filtered.txt)"
 
 ### Motif information
-Motif information for all oligoes is saved in mat file "[oligo_motif_scan.mat](https://github.com/HengyeChen/oligo_design/blob/main/oligoes/oligo_motif_scan.mat)";
-In this file, each column represent a TF motif in the folder "[Formatted_PWM](https://github.com/HengyeChen/oligo_design/tree/main/Formatted_PWM)"(in alphabetical order).Each row represents an oligo in "[oligo_example.txt](https://github.com/HengyeChen/oligo_design/blob/main/oligoes/oligo_example.txt)".
+Motif information for all oligos is saved in mat file "[oligo_motif_scan.mat](https://github.com/HengyeChen/oligo_design/blob/main/oligos/oligo_motif_scan.mat)";
+In this file, each column represent a TF motif in the folder "[Formatted_PWM](https://github.com/HengyeChen/oligo_design/tree/main/Formatted_PWM)"(in alphabetical order).Each row represents an oligo in "[oligo_example.txt](https://github.com/HengyeChen/oligo_design/blob/main/oligos/oligo_example.txt)".
 
 
 
