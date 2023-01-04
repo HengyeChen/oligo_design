@@ -1,9 +1,5 @@
 function [all_mat,final_seq] = BindingsitecheckHC_v2(oligo_file,bkg_file,PWM_folder,cutoffFile,result_file,output_seqs)
 dbstop if error
-%oligo_file = 'C:\Users\bailab\Dropbox\Common\Sequence\yeast NDR\methylation test\barcode_design_v1.txt';
-% PWM_folder = 'F:\Work\Hengye\NDR\ScerTF\Formatted_PWM_NDF';
-% cutoffFile = 'F:\lbai_psu\Project_Genome-wide NDR\motif analysis\recommended_cutoff.xlsx';
-% bkg_file = 'C:\Users\bailab\Dropbox\MATLAB\oligoDesign\design_info\bkg sequence (HO nuc-4).txt';
 all_PWM = gather_PWM_info(PWM_folder, cutoffFile);
 oligo_seq = readlines(oligo_file);
 trim_seq = cell(length(oligo_seq),1);
