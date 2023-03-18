@@ -1,5 +1,9 @@
-function [all_mat,final_seq] = BindingsitecheckHC_v2(oligo_file,bkg_file,PWM_folder,cutoffFile,result_file,output_seqs)
+function [all_mat,final_seq] = BindingsitecheckHC_v2(oligo_file,bkg_file,PWM_folder,cutoffFile,PF,PR,cutsite,result_file,output_seqs)
 dbstop if error
+%oligo_file = 'C:\Users\bailab\Dropbox\Common\Sequence\yeast NDR\methylation test\barcode_design_v1.txt';
+% PWM_folder = 'F:\Work\Hengye\NDR\ScerTF\Formatted_PWM_NDF';
+% cutoffFile = 'F:\lbai_psu\Project_Genome-wide NDR\motif analysis\recommended_cutoff.xlsx';
+% bkg_file = 'C:\Users\bailab\Dropbox\MATLAB\oligoDesign\design_info\bkg sequence (HO nuc-4).txt';
 all_PWM = gather_PWM_info(PWM_folder, cutoffFile);
 oligo_seq = readlines(oligo_file);
 trim_seq = cell(length(oligo_seq),1);
@@ -27,6 +31,10 @@ for j=1:numel(All_TF)
 end
 for a = 1:length(oligo_seq)% a is the index of oligo
     oligo = char(oligo_seq(a,:));
+    oligo = [PF oligo(29:88) PR];
+    if length(strfind(oligo,cutsite)) ~= 2
+        continue
+    end
     oligoR = seqrcomplement(oligo);
     for i=1:numel(All_TF)
         PWM = all_PWM.(char(All_TF(i))).matrix;
@@ -43,8 +51,8 @@ for a = 1:length(oligo_seq)% a is the index of oligo
 %             index(a,i) = {hit_idx};
 %         end
     end
-    if (sum((num_matrix(a,:)-bkg_mat)>0)) <= 1
-        trim_seq(a,1) = {oligo};
+    if (sum((num_matrix(a,:)-bkg_mat)>0)) <= 1 
+            trim_seq(a,1) = {oligo};
     end
 end
 final_seq = trim_seq(~cellfun('isempty',trim_seq));
