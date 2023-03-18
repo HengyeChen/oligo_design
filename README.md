@@ -21,10 +21,10 @@ Run the command below to open OligoDesign3.
 > OligoDesign3;
 
 Choose input files and select output folder in the program. You can change the motif number and position in the text box on the program panel.
-This program replace the endogenous sequence in the background sequence with target TF motifs.
+This program replace the endogenous sequence in the background nucleosome sequence with target TF motifs. The output of this step is not the final oligos!
 
 ## Check motifs in oligo sequences
-Run the command below to check motifs in oligos and remove oligos with unintended motifs.
+Run the command below to generate oligos, check motifs in oligos and remove oligos with unintended motifs.
 > cd Yourfolder;%open the directory containing the sample files\
 > oligo_file = 'oligos\oligo_example.txt';\
 > bkg_file = 'design_info\bkg sequence (HO nuc-4).txt';\
@@ -37,7 +37,7 @@ Run the command below to check motifs in oligos and remove oligos with unintende
 > output_seqs = 'oligos\oligo_filtered.txt';\
 > [all_mat,final_seq] = BindingsitecheckHC_v2(oligo_file,bkg_file,PWM_folder,cutoffFile,PF,PR,cutsite,result_file,output_seqs);
 
-BindingsitecheckHC_v2.m scan each oligo and uses PWMs and cutoff file to determine the existence of each TF motif. oligos with unintended motifs will be removed.
+BindingsitecheckHC_v2.m generates 100bp oligos, scans each oligo, and uses PWMs and cutoff file to determine the existence of each TF motif. oligos with unintended motifs will be removed.
 
 ## Examples of output files
 ### oligos and filtered oligos
