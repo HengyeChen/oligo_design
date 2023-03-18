@@ -22,7 +22,7 @@ function varargout = OligoDesign3(varargin)
 
 % Edit the above text to modify the response to help OligoDesign2
 
-% Last Modified by GUIDE v2.5 26-May-2016 14:42:29
+% Last Modified by GUIDE v2.5 18-Mar-2023 19:21:16
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -82,7 +82,7 @@ file = get(handles.factorFile,'string');
 [N,factor_scanning] = xlsread(file,'set2_single_scanning');
 [N,facotr_copyN_spacing] = xlsread(file,'set3_Ncopy_spacing');
 %[N,factor_combi] = xlsread(file,'set4_factor_combination');
-[N,factor_native] = xlsread(file,'set5_native');
+[N,factor_native] = xlsread(file,'set4_native');
 
 set(handles.f1N, 'string', num2str(size(factor_single_site,1)-1));
 set(handles.f2N, 'string', num2str(size(factor_scanning,1)-1));
@@ -260,7 +260,7 @@ if get(handles.mute,'value') && get(handles.reverse,'value')
     error = error+error4;
 end
 if error > 0
-    set(handles.message,'string','error in generating oligo sequence');
+    %set(handles.message,'string','error in generating oligo sequence');
 end
 close(h);
 
@@ -930,7 +930,7 @@ Dis = str2num(get(handles.set1Para3,'string'));
 Ntotal = length(seqTotal);
 set(handles.N5,'string',num2str(Ntotal));
 
-[file1,file2,file3] = outputFile (handles, 5);
+[file1,file2,file3] = outputFile (handles, 4);
 dlmcell(file1,seqTotal);
 xlswrite(file2,intendW');
 xlswrite(file3,intendC');
