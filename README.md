@@ -30,9 +30,12 @@ Run the command below to check motifs in oligos and remove oligos with unintende
 > bkg_file = 'design_info\bkg sequence (HO nuc-4).txt';\
 > PWM_folder = 'Formatted_PWM';\
 > cutoffFile = 'recommended_cutoff.xlsx';\
+> PF = 'CTGCTAGGGAAGACACTGCG';\
+> PR = 'CACGATCCGAAGACAGTTCC';\
+> cutsite = 'GAAGAC';\
 > result_file = 'oligos\oligo_motif_scan.mat';\
 > output_seqs = 'oligos\oligo_filtered.txt';\
-> [all_mat,final_seq] = BindingsitecheckHC_v2(oligo_file,bkg_file,PWM_folder,cutoffFile,result_file,output_seqs);
+> [all_mat,final_seq] = BindingsitecheckHC_v2(oligo_file,bkg_file,PWM_folder,cutoffFile,PF,PR,cutsite,result_file,output_seqs);
 
 BindingsitecheckHC_v2.m scan each oligo and uses PWMs and cutoff file to determine the existence of each TF motif. oligos with unintended motifs will be removed.
 
