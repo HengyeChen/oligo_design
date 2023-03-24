@@ -1,4 +1,4 @@
-function [all_mat,final_seq] = BindingsitecheckHC_v2(oligo_file,bkg_file,PWM_folder,cutoffFile,PF,PR,cutsite,result_file,output_seqs)
+function [all_mat,filtered_seq] = BindingsitecheckHC_v2(oligo_file,bkg_file,PWM_folder,cutoffFile,result_file,output_seqs)
 dbstop if error
 %oligo_file = 'C:\Users\bailab\Dropbox\Common\Sequence\yeast NDR\methylation test\barcode_design_v1.txt';
 % PWM_folder = 'F:\Work\Hengye\NDR\ScerTF\Formatted_PWM_NDF';
@@ -31,10 +31,6 @@ for j=1:numel(All_TF)
 end
 for a = 1:length(oligo_seq)% a is the index of oligo
     oligo = char(oligo_seq(a,:));
-    oligo = [PF oligo(29:88) PR];
-    if length(strfind(oligo,cutsite)) ~= 2
-        continue
-    end
     oligoR = seqrcomplement(oligo);
     for i=1:numel(All_TF)
         PWM = all_PWM.(char(All_TF(i))).matrix;
@@ -46,7 +42,7 @@ for a = 1:length(oligo_seq)% a is the index of oligo
         num_matrix_f(a,i) = length(hit_index1);
         num_matrix_r(a,i) = length(hit_index2);
         num_matrix(a,i) = num_matrix_f(a,i) + num_matrix_r(a,i);
-        hit_idx = [hit_index1,length(oligo)-flip(hit_index2)];
+        %hit_idx = [hit_index1,length(oligo)-flip(hit_index2)];
 %         if ~isempty(hit_idx)
 %             index(a,i) = {hit_idx};
 %         end
@@ -55,9 +51,9 @@ for a = 1:length(oligo_seq)% a is the index of oligo
             trim_seq(a,1) = {oligo};
     end
 end
-final_seq = trim_seq(~cellfun('isempty',trim_seq));
+filtered_seq = trim_seq(~cellfun('isempty',trim_seq));
 all_mat.f = num_matrix_f;
 all_mat.r = num_matrix_r;
 save(result_file,'all_mat');
-writecell(final_seq,output_seqs);
+writecell(filtered_seq,output_seqs);
 end
