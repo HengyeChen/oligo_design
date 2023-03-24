@@ -51,7 +51,7 @@ OligoLib.m generates 100bp oligos, scans each oligo, and uses PWMs and cutoff fi
 
 ## Examples of output files
 ### oligos and filtered oligos
-Oligo sequences are saved in txt files "[oligo_example.txt](https://github.com/HengyeChen/oligo_design/blob/main/oligos/oligo_example.txt)" and "[oligo_filtered.txt](https://github.com/HengyeChen/oligo_design/blob/main/oligos/oligo_filtered.txt)"
+Oligo sequences are saved in txt files "[oligo_example.txt](https://github.com/HengyeChen/oligo_design/blob/main/oligos/oligo_example.txt)", "[oligo_filtered.txt](https://github.com/HengyeChen/oligo_design/blob/main/oligos/oligo_filtered.txt)", and "[oligo_final.txt](https://github.com/HengyeChen/oligo_design/blob/main/oligos/oligo_final.txt)"
 
 ### Motif information
 Motif information for all oligos is saved in mat file "[oligo_motif_scan.mat](https://github.com/HengyeChen/oligo_design/blob/main/oligos/oligo_motif_scan.mat)";
